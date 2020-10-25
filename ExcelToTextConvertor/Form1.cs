@@ -33,7 +33,7 @@ namespace ExcelToTextConvertor
         {
             if (dataTableCollection != null && dataTableCollection.Count > 0)
             {
-                dataGridViewExcel.DataSource = dataTableCollection[comboBoxExcelSheet.SelectedValue.ToString()];
+                dataGridViewExcel.DataSource = dataTableCollection[comboBoxExcelSheet.SelectedItem.ToString()];
             }
         }
 
@@ -67,7 +67,11 @@ namespace ExcelToTextConvertor
 
                             // populate combo box for excel sheets with the excel tables retrieved
                             comboBoxExcelSheet.Items.Clear();
-                            comboBoxExcelSheet.Items.Add(dataTableCollection);
+
+                            foreach (DataTable dt in dataTableCollection)
+                            {
+                                comboBoxExcelSheet.Items.Add(dt.TableName);
+                            }
                         }
                     }
                 }
