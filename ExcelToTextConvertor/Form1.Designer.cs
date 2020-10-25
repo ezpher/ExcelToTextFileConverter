@@ -71,6 +71,7 @@
             this.readonlyUploadExcel.ReadOnly = true;
             this.readonlyUploadExcel.Size = new System.Drawing.Size(592, 20);
             this.readonlyUploadExcel.TabIndex = 3;
+            this.readonlyUploadExcel.GotFocus += readonlyUploadExcel_GotFocus;
             // 
             // btnUploadExcel
             // 
@@ -122,6 +123,7 @@
             this.readonlyTextFileExport.ReadOnly = true;
             this.readonlyTextFileExport.Size = new System.Drawing.Size(592, 20);
             this.readonlyTextFileExport.TabIndex = 3;
+            this.readonlyTextFileExport.GotFocus += readonlyTextFileExport_GotFocus;
             // 
             // btnTextFileExport
             // 

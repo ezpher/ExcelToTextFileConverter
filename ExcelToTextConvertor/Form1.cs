@@ -32,9 +32,9 @@ namespace ExcelToTextConvertor
 
         [DllImport("user32.dll")]
         static extern bool HideCaret(System.IntPtr hWnd);
-        public void HideCaret()
+        public void HideCaret(TextBox txtBoxCtl)
         {
-            HideCaret(readonlyUploadExcel.Handle);
+            HideCaret(txtBoxCtl.Handle);
         }
 
         #endregion
@@ -114,7 +114,14 @@ namespace ExcelToTextConvertor
         // hide blinking ibeam cursor on focus of the readonly textbox
         private void readonlyUploadExcel_GotFocus(object sender, EventArgs e)
         {
-            HideCaret();
+            TextBox readonlyUploadExcelCtl = ((TextBox)sender);
+            HideCaret(readonlyUploadExcelCtl);
+        }
+
+        private void readonlyTextFileExport_GotFocus(object sender, EventArgs e)
+        {
+            TextBox readonlyTextFileExportCtl = ((TextBox)sender);
+            HideCaret(readonlyTextFileExportCtl);
         }
 
         private void btnTextFileExport_Click(object sender, EventArgs e)
