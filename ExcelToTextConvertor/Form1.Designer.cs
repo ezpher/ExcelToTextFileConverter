@@ -62,6 +62,7 @@
             this.readonlyUploadExcel.ReadOnly = true;
             this.readonlyUploadExcel.Size = new System.Drawing.Size(592, 20);
             this.readonlyUploadExcel.TabIndex = 3;
+            this.readonlyUploadExcel.GotFocus += readonlyUploadExcel_GotFocus;
             // 
             // btnUploadExcel
             // 
