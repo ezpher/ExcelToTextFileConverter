@@ -28,13 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dataGridViewExcel = new System.Windows.Forms.DataGridView();
+            this.lblUploadExcel = new System.Windows.Forms.Label();
+            this.readonlyUploadExcel = new System.Windows.Forms.TextBox();
+            this.btnUploadExcel = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExcel)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridViewExcel
+            // 
+            this.dataGridViewExcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewExcel.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewExcel.Name = "dataGridViewExcel";
+            this.dataGridViewExcel.Size = new System.Drawing.Size(741, 298);
+            this.dataGridViewExcel.TabIndex = 0;
+            // 
+            // lblUploadExcel
+            // 
+            this.lblUploadExcel.AutoSize = true;
+            this.lblUploadExcel.Location = new System.Drawing.Point(12, 335);
+            this.lblUploadExcel.Name = "lblUploadExcel";
+            this.lblUploadExcel.Size = new System.Drawing.Size(70, 13);
+            this.lblUploadExcel.TabIndex = 1;
+            this.lblUploadExcel.Text = "Upload Excel";
+            // 
+            // readonlyUploadExcel
+            // 
+            this.readonlyUploadExcel.Location = new System.Drawing.Point(88, 332);
+            this.readonlyUploadExcel.Name = "readonlyUploadExcel";
+            this.readonlyUploadExcel.ReadOnly = true;
+            this.readonlyUploadExcel.Size = new System.Drawing.Size(592, 20);
+            this.readonlyUploadExcel.TabIndex = 3;
+            // 
+            // btnUploadExcel
+            // 
+            this.btnUploadExcel.Location = new System.Drawing.Point(695, 330);
+            this.btnUploadExcel.Name = "btnUploadExcel";
+            this.btnUploadExcel.Size = new System.Drawing.Size(58, 23);
+            this.btnUploadExcel.TabIndex = 4;
+            this.btnUploadExcel.Text = "...";
+            this.btnUploadExcel.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnUploadExcel);
+            this.Controls.Add(this.readonlyUploadExcel);
+            this.Controls.Add(this.lblUploadExcel);
+            this.Controls.Add(this.dataGridViewExcel);
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExcel)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridViewExcel;
+        private System.Windows.Forms.Label lblUploadExcel;
+        private System.Windows.Forms.TextBox readonlyUploadExcel;
+        private System.Windows.Forms.Button btnUploadExcel;
     }
 }
 
