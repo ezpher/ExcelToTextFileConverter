@@ -56,6 +56,7 @@
             // 
             // readonlyUploadExcel
             // 
+            this.readonlyUploadExcel.Cursor = System.Windows.Forms.Cursors.Default;
             this.readonlyUploadExcel.Location = new System.Drawing.Point(88, 332);
             this.readonlyUploadExcel.Name = "readonlyUploadExcel";
             this.readonlyUploadExcel.ReadOnly = true;
