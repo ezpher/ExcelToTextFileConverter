@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,13 @@ namespace ExcelToTextConvertor
     public partial class Form1 : Form
     {
         private DataTableCollection dataTableCollection;
+
+        [DllImport("user32.dll")]
+        static extern bool HideCaret(System.IntPtr hWnd);
+        public void HideCaret()
+        {
+            HideCaret(readonlyUploadExcel.Handle);
+        }
 
         public Form1()
         {
@@ -64,6 +72,12 @@ namespace ExcelToTextConvertor
                     }
                 }
             }
+        }
+
+        // hide blinking ibeam cursor on focus of the readonly textbox
+        private void readonlyUploadExcel_GotFocus(object sender, EventArgs e)
+        {
+            HideCaret();
         }
     }
 }
