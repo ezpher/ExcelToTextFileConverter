@@ -1,0 +1,14 @@
+Background:
+
+This project is based on the use case of printing out column(s) from an uploaded excel spreadsheet to a text file
+The file writing is using append mode
+Multiple columns are printed side by side to the text file
+Headers are not printed
+
+1) 
+Change Form1 Name and Text to Title of Project i.e. ExcelToTextConverter
+
+2) 
+Currently, can select individual cells in each column; use case is based on selection of entire column(s); 
+to change if possible, to select entire column(s);
+however functionality still prints out the contents of entire column(s) even if individual cells are selected for those column(s)
