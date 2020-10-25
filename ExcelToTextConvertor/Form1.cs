@@ -16,5 +16,15 @@ namespace ExcelToTextConvertor
         {
             InitializeComponent();
         }
+
+        private void comboBoxExcelSheet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUploadExcel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

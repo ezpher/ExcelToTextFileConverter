@@ -32,6 +32,8 @@
             this.lblUploadExcel = new System.Windows.Forms.Label();
             this.readonlyUploadExcel = new System.Windows.Forms.TextBox();
             this.btnUploadExcel = new System.Windows.Forms.Button();
+            this.comboBoxExcelSheet = new System.Windows.Forms.ComboBox();
+            this.lblExcelSheet = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExcel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,9 +50,9 @@
             this.lblUploadExcel.AutoSize = true;
             this.lblUploadExcel.Location = new System.Drawing.Point(12, 335);
             this.lblUploadExcel.Name = "lblUploadExcel";
-            this.lblUploadExcel.Size = new System.Drawing.Size(70, 13);
+            this.lblUploadExcel.Size = new System.Drawing.Size(55, 13);
             this.lblUploadExcel.TabIndex = 1;
-            this.lblUploadExcel.Text = "Upload Excel";
+            this.lblUploadExcel.Text = "Excel File:";
             // 
             // readonlyUploadExcel
             // 
@@ -68,12 +70,33 @@
             this.btnUploadExcel.TabIndex = 4;
             this.btnUploadExcel.Text = "...";
             this.btnUploadExcel.UseVisualStyleBackColor = true;
+            this.btnUploadExcel.Click += new System.EventHandler(this.btnUploadExcel_Click);
+            // 
+            // comboBoxExcelSheet
+            // 
+            this.comboBoxExcelSheet.FormattingEnabled = true;
+            this.comboBoxExcelSheet.Location = new System.Drawing.Point(88, 359);
+            this.comboBoxExcelSheet.Name = "comboBoxExcelSheet";
+            this.comboBoxExcelSheet.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxExcelSheet.TabIndex = 5;
+            this.comboBoxExcelSheet.SelectedIndexChanged += new System.EventHandler(this.comboBoxExcelSheet_SelectedIndexChanged);
+            // 
+            // lblExcelSheet
+            // 
+            this.lblExcelSheet.AutoSize = true;
+            this.lblExcelSheet.Location = new System.Drawing.Point(12, 362);
+            this.lblExcelSheet.Name = "lblExcelSheet";
+            this.lblExcelSheet.Size = new System.Drawing.Size(38, 13);
+            this.lblExcelSheet.TabIndex = 6;
+            this.lblExcelSheet.Text = "Sheet:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblExcelSheet);
+            this.Controls.Add(this.comboBoxExcelSheet);
             this.Controls.Add(this.btnUploadExcel);
             this.Controls.Add(this.readonlyUploadExcel);
             this.Controls.Add(this.lblUploadExcel);
@@ -92,6 +115,8 @@
         private System.Windows.Forms.Label lblUploadExcel;
         private System.Windows.Forms.TextBox readonlyUploadExcel;
         private System.Windows.Forms.Button btnUploadExcel;
+        private System.Windows.Forms.ComboBox comboBoxExcelSheet;
+        private System.Windows.Forms.Label lblExcelSheet;
     }
 }
 
