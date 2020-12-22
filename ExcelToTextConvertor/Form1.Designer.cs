@@ -49,7 +49,7 @@
             this.dataGridViewExcel.Location = new System.Drawing.Point(15, 12);
             this.dataGridViewExcel.Name = "dataGridViewExcel";
             this.dataGridViewExcel.ReadOnly = true;
-            this.dataGridViewExcel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.ColumnHeaderSelect;
+            this.dataGridViewExcel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullColumnSelect;
             this.dataGridViewExcel.Size = new System.Drawing.Size(738, 245);
             this.dataGridViewExcel.TabIndex = 0;
             this.dataGridViewExcel.DataSourceChanged += new System.EventHandler(this.dataGridViewExcel_DataSourceChanged);
@@ -71,7 +71,6 @@
             this.readonlyUploadExcel.ReadOnly = true;
             this.readonlyUploadExcel.Size = new System.Drawing.Size(592, 20);
             this.readonlyUploadExcel.TabIndex = 3;
-            this.readonlyUploadExcel.GotFocus += readonlyUploadExcel_GotFocus;
             // 
             // btnUploadExcel
             // 
@@ -123,7 +122,6 @@
             this.readonlyTextFileExport.ReadOnly = true;
             this.readonlyTextFileExport.Size = new System.Drawing.Size(592, 20);
             this.readonlyTextFileExport.TabIndex = 3;
-            this.readonlyTextFileExport.GotFocus += readonlyTextFileExport_GotFocus;
             // 
             // btnTextFileExport
             // 

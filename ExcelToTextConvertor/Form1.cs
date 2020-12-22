@@ -55,6 +55,7 @@ namespace ExcelToTextConvertor
                 // column's sortmode cannot be set to automatic while the datagridview control's selectionmode is set to columnheaderselect.
 
                 // only upon binding to datasource, then change back selection mode back to column header select in the data source changed event handler
+                // note that the final datagridviewselection mode has been changed from columnheaderselect to fullcolumnselect to allow only column selection i.e. no cell selection at all
                 dataGridViewExcel.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
                 dataGridViewExcel.DataSource = DataTableCollection[comboBoxExcelSheet.SelectedItem.ToString()];
             }
@@ -67,7 +68,7 @@ namespace ExcelToTextConvertor
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
-            dataGridViewExcel.SelectionMode = DataGridViewSelectionMode.ColumnHeaderSelect;
+            dataGridViewExcel.SelectionMode = DataGridViewSelectionMode.FullColumnSelect;
         }
 
         private void btnUploadExcel_Click(object sender, EventArgs e)
