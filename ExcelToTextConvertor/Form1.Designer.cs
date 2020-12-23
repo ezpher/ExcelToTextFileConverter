@@ -38,6 +38,8 @@
             this.lblTextFileExport = new System.Windows.Forms.Label();
             this.readonlyTextFileExport = new System.Windows.Forms.TextBox();
             this.btnTextFileExport = new System.Windows.Forms.Button();
+            this.comboBoxSelectionMode = new System.Windows.Forms.ComboBox();
+            this.labelSelectionMode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExcel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@
             // lblUploadExcel
             // 
             this.lblUploadExcel.AutoSize = true;
-            this.lblUploadExcel.Location = new System.Drawing.Point(13, 308);
+            this.lblUploadExcel.Location = new System.Drawing.Point(27, 308);
             this.lblUploadExcel.Name = "lblUploadExcel";
             this.lblUploadExcel.Size = new System.Drawing.Size(55, 13);
             this.lblUploadExcel.TabIndex = 1;
@@ -71,6 +73,7 @@
             this.readonlyUploadExcel.ReadOnly = true;
             this.readonlyUploadExcel.Size = new System.Drawing.Size(592, 20);
             this.readonlyUploadExcel.TabIndex = 3;
+            this.readonlyUploadExcel.GotFocus += new System.EventHandler(this.readonlyUploadExcel_GotFocus);
             // 
             // btnUploadExcel
             // 
@@ -84,6 +87,7 @@
             // 
             // comboBoxExcelSheet
             // 
+            this.comboBoxExcelSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxExcelSheet.FormattingEnabled = true;
             this.comboBoxExcelSheet.Location = new System.Drawing.Point(89, 332);
             this.comboBoxExcelSheet.Name = "comboBoxExcelSheet";
@@ -94,7 +98,7 @@
             // lblExcelSheet
             // 
             this.lblExcelSheet.AutoSize = true;
-            this.lblExcelSheet.Location = new System.Drawing.Point(13, 335);
+            this.lblExcelSheet.Location = new System.Drawing.Point(44, 335);
             this.lblExcelSheet.Name = "lblExcelSheet";
             this.lblExcelSheet.Size = new System.Drawing.Size(38, 13);
             this.lblExcelSheet.TabIndex = 6;
@@ -108,7 +112,7 @@
             // lblTextFileExport
             // 
             this.lblTextFileExport.AutoSize = true;
-            this.lblTextFileExport.Location = new System.Drawing.Point(13, 362);
+            this.lblTextFileExport.Location = new System.Drawing.Point(32, 362);
             this.lblTextFileExport.Name = "lblTextFileExport";
             this.lblTextFileExport.Size = new System.Drawing.Size(50, 13);
             this.lblTextFileExport.TabIndex = 1;
@@ -122,6 +126,7 @@
             this.readonlyTextFileExport.ReadOnly = true;
             this.readonlyTextFileExport.Size = new System.Drawing.Size(592, 20);
             this.readonlyTextFileExport.TabIndex = 3;
+            this.readonlyTextFileExport.GotFocus += new System.EventHandler(this.readonlyTextFileExport_GotFocus);
             // 
             // btnTextFileExport
             // 
@@ -133,11 +138,32 @@
             this.btnTextFileExport.UseVisualStyleBackColor = true;
             this.btnTextFileExport.Click += new System.EventHandler(this.btnTextFileExport_Click);
             // 
+            // comboBoxSelectionMode
+            // 
+            this.comboBoxSelectionMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSelectionMode.FormattingEnabled = true;
+            this.comboBoxSelectionMode.Location = new System.Drawing.Point(89, 276);
+            this.comboBoxSelectionMode.Name = "comboBoxSelectionMode";
+            this.comboBoxSelectionMode.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSelectionMode.TabIndex = 7;
+            this.comboBoxSelectionMode.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectionMode_SelectedIndexChanged);
+            // 
+            // labelSelectionMode
+            // 
+            this.labelSelectionMode.AutoSize = true;
+            this.labelSelectionMode.Location = new System.Drawing.Point(12, 279);
+            this.labelSelectionMode.Name = "labelSelectionMode";
+            this.labelSelectionMode.Size = new System.Drawing.Size(70, 13);
+            this.labelSelectionMode.TabIndex = 8;
+            this.labelSelectionMode.Text = "Select Mode:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelSelectionMode);
+            this.Controls.Add(this.comboBoxSelectionMode);
             this.Controls.Add(this.lblExcelSheet);
             this.Controls.Add(this.comboBoxExcelSheet);
             this.Controls.Add(this.btnTextFileExport);
@@ -149,6 +175,7 @@
             this.Controls.Add(this.dataGridViewExcel);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExcel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,6 +194,8 @@
         private System.Windows.Forms.Label lblTextFileExport;
         private System.Windows.Forms.TextBox readonlyTextFileExport;
         private System.Windows.Forms.Button btnTextFileExport;
+        private System.Windows.Forms.ComboBox comboBoxSelectionMode;
+        private System.Windows.Forms.Label labelSelectionMode;
     }
 }
 

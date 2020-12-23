@@ -18,6 +18,34 @@ namespace ExcelToTextConvertor
 
         #region Non-Event Handlers e.g. private variables
 
+        private enum SelectMode
+        {
+            ColumnHeaderSelect,
+            FullColumnSelect
+        }
+
+        private class SelectModeItem
+        {
+            private string _name;
+            private string _value;
+
+            public SelectModeItem(string name, string value)
+            {
+                _name = name;
+                _value = value;
+            }
+
+            public string Name
+            {
+                get { return _name; }
+            }
+
+            public string Value
+            {
+                get { return _value; }
+            }
+        }
+
         private DataTableCollection DataTableCollection { get; set; }
 
         private struct TxtFileWorkerThreadParams
@@ -46,6 +74,26 @@ namespace ExcelToTextConvertor
             InitializeComponent();
         }
 
+        private void comboBoxSelectionMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridViewExcel.SelectionMode = ((SelectModeItem)comboBoxSelectionMode.SelectedItem).Value == DataGridViewSelectionMode.ColumnHeaderSelect.ToString() ? DataGridViewSelectionMode.ColumnHeaderSelect : DataGridViewSelectionMode.FullColumnSelect;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            comboBoxSelectionMode.DisplayMember = "Name";
+            comboBoxSelectionMode.ValueMember = "Value";
+
+            comboBoxSelectionMode.Items.AddRange(new[]
+            {
+              new SelectModeItem("Column-Wise",SelectMode.ColumnHeaderSelect.ToString()),
+              new SelectModeItem("Full Column", SelectMode.FullColumnSelect.ToString())
+            });
+
+            comboBoxSelectionMode.SelectedIndex = 0;
+        }
+
         private void comboBoxExcelSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DataTableCollection != null && DataTableCollection.Count > 0)
@@ -68,7 +116,7 @@ namespace ExcelToTextConvertor
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
-            dataGridViewExcel.SelectionMode = DataGridViewSelectionMode.FullColumnSelect;
+            dataGridViewExcel.SelectionMode = ((SelectModeItem)comboBoxSelectionMode.SelectedItem).Value == DataGridViewSelectionMode.ColumnHeaderSelect.ToString() ? DataGridViewSelectionMode.ColumnHeaderSelect : DataGridViewSelectionMode.FullColumnSelect;
         }
 
         private void btnUploadExcel_Click(object sender, EventArgs e)
