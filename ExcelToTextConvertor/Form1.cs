@@ -52,8 +52,6 @@ namespace ExcelToTextConvertor
         {
             public string FileName { get; set; }
             public DataGridViewRowCollection DataGridViewRowCollection { get; set; }
-            public DataGridViewSelectedColumnCollection DataGridViewSelectedColumnCollection { get; set; }
-
         }
 
         TxtFileWorkerThreadParams _inputParams;
@@ -180,15 +178,14 @@ namespace ExcelToTextConvertor
             using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Text Documents|*.txt" })
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK
-                    && dataGridViewExcel.SelectedColumns != null
-                    && dataGridViewExcel.SelectedColumns.Count > 0)
+                    && dataGridViewExcel.SelectedCells != null
+                    && dataGridViewExcel.SelectedCells.Count > 0)
                 {
 
                     readonlyTextFileExport.Text = saveFileDialog.FileName;
 
                     _inputParams.FileName = saveFileDialog.FileName;
                     _inputParams.DataGridViewRowCollection = dataGridViewExcel.Rows;
-                    _inputParams.DataGridViewSelectedColumnCollection = dataGridViewExcel.SelectedColumns;
 
                     backgroundWorkerTextFileExport.RunWorkerAsync(_inputParams);
                 }
@@ -198,7 +195,6 @@ namespace ExcelToTextConvertor
         private void backgroundWorkerTextFileExport_DoWork(object sender, DoWorkEventArgs e)
         {
             DataGridViewRowCollection dataGridViewRowCollection = ((TxtFileWorkerThreadParams)e.Argument).DataGridViewRowCollection;
-            DataGridViewSelectedColumnCollection dataGridViewSelectedColumnCollection = ((TxtFileWorkerThreadParams)e.Argument).DataGridViewSelectedColumnCollection;
 
             string fileName = ((TxtFileWorkerThreadParams)e.Argument).FileName;
 
@@ -213,10 +209,17 @@ namespace ExcelToTextConvertor
 
                 foreach (DataGridViewRow row in dataGridViewRowCollection)
                 {
-                    for (int colIndex = 0; colIndex < dataGridViewSelectedColumnCollection.Count; colIndex++)
+                    for (int cellIndex = 0; cellIndex < row.Cells.Count; cellIndex++)
                     {
-                        sb.Append(row.Cells[dataGridViewSelectedColumnCollection[colIndex].DisplayIndex].Value);
-                        sb.Append("\t");
+                        if ((row.Cells[cellIndex]).Selected)
+                        {
+                            sb.Append(row.Cells[cellIndex].Value);
+                            sb.Append("\t");
+                        }
+                        else
+                        {
+                            sb.Append("\t");
+                        }
                     }
 
                     sb.AppendLine();
@@ -234,6 +237,10 @@ namespace ExcelToTextConvertor
             if (e.Error == null)
             {
                 MessageBox.Show("Your data has been successfully exported");
+            }
+            else
+            {
+                MessageBox.Show(e.Error.Message);
             }
         }
 
